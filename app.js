@@ -19,9 +19,10 @@ app.get('/', (req, res) => {
 
 // 以 POST 方法傳送的資料內容不會顯示在網址列上
 app.post('/', (req, res) => {
-  const password = generatePassword(req.body)
+  const options = req.body
+  const password = generatePassword(options)
   // console.log('password', generatePassword(req.body))
-  res.render('index', { password: password })
+  res.render('index', { password: password, options: options })
 })
 
 app.listen(port, () => {
