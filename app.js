@@ -1,6 +1,7 @@
 // require related modules used in the project
 const express = require('express')
 const exphbs = require('express-handlebars')
+const generatePassword = require('./generate_password')
 const app = express()
 const port = 3000
 
@@ -18,8 +19,9 @@ app.get('/', (req, res) => {
 
 // 以 POST 方法傳送的資料內容不會顯示在網址列上
 app.post('/', (req, res) => {
-  console.log('req.body', req.body)
-  res.render('index')
+  const password = generatePassword(req.body)
+  // console.log('password', generatePassword(req.body))
+  res.render('index', { password: password })
 })
 
 app.listen(port, () => {

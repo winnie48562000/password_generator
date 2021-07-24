@@ -6,22 +6,22 @@
 
 
 // define generatePassword function
-function generatePassword() {
+function generatePassword(options) {
   // define things user might want
   const lowerCaseLetters = 'abcdefghijklmnopqrstuvwxyz'
   const upperCaseLetters = lowerCaseLetters.toUpperCase()
   const numbers = '1234567890'
   const symbols = '`~!@$%^&*()-_+={}[]|;:"<>,.?/'
 
-  // define dummy data
-  const options = { 
-    length: '3',
-    lowercase: 'on',
-    uppercase: 'on',
-    numbers: 'on',
-    excludeCharacters: '40'
-  }
-  console.log('options', options)
+  // // define dummy data
+  // const options = { 
+  //   length: '3',
+  //   lowercase: 'on',
+  //   uppercase: 'on',
+  //   numbers: 'on',
+  //   excludeCharacters: '40'
+  // }
+  // console.log('options', options)
   
   // creat a collection to store things user pick up
   let collection = []
@@ -59,5 +59,5 @@ function generatePassword() {
   return password
 }
 
-// invoke generatePassword function
-generatePassword()
+// export generatePassword funtion for other files to use
+module.exports = generatePassword
